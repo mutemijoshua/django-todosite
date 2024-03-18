@@ -1,0 +1,22 @@
+
+{% extends '_partials/base.html' %} 
+{% block title %}
+ Delete Todo
+{% endblock%}
+
+{% load static %}
+
+    {%block content%}
+        <h1 class="ui header">Delete to do</h1>
+        <form method="POST" action={% url 'todo-delete' todo.id %} class="ui form">
+            {% csrf_token %}
+            <p> Are you sure you want to delete Todo?</p>
+
+            <input type="submit" class="ui button negative" value="YES">
+            <a href = {% url 'todo' todo.id %}>Cancel</a>
+
+            </form>
+
+     
+    
+    {%endblock content%}
