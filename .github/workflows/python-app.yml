@@ -41,7 +41,7 @@ jobs:
         pip install -r requirements.txt
     - name: Test with Unittest
       env:
-        SECRET_KEY : ${{ secrets.SECRET_key }}
+        SECRET_KEY : "django-insecure-%lugm4t7p^6vk)3rc=#r6s%vg5uvn+gby@jcv!v0vk&^ppb$ik"
         DB_NAME : github_actions
         DB_USER : postgres
         DB_PASSWORD : postgres
