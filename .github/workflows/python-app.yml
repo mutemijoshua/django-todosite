@@ -29,12 +29,12 @@ jobs:
         pip install -r requirements.txt
     - name: Test with Unittest
       env:
-        SECRET_KEY : ${{ secret.SECRET_key }}
-        DB_ENGINE : ${{ secret.DB_ENGINE }}
-        DB_NAME : ${{ secret.DB_NAME }}
-        DB_USER : ${{ secret.DB_USER }}
-        DB_PASSWORD : ${{ secret.DB_PASSWORD }}
-        DB_PORT : ${{ secret.DB_PORT }}
-        DB_HOST : ${{ secret.DB_HOST }}
+        SECRET_KEY : ${{ secrets.SECRET_key }}
+        DB_ENGINE : ${{ secrets.DB_ENGINE }}
+        DB_NAME : ${{ secrets.DB_NAME }}
+        DB_USER : ${{ secrets.DB_USER }}
+        DB_PASSWORD : ${{ secrets.DB_PASSWORD }}
+        DB_PORT : ${{ secrets.DB_PORT }}
+        DB_HOST : ${{ secrets.DB_HOST }}
       run: |
         python manage.py test 
