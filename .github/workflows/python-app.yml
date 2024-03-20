@@ -27,7 +27,7 @@ jobs:
         ports:
           - 5433:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s
-          --health-retries 6
+          --health-retries 5
 
     steps:
     - uses: actions/checkout@v3
@@ -41,13 +41,13 @@ jobs:
         pip install -r requirements.txt
     - name: Test with Unittest
       env:
-        SECRET_KEY : $ {{ secrets.SECRET_key }}
-        DB_NAME : ${{ secrets.DB_NAME }}
-        DB_USER : ${{ secrets.DB_USER }}
-        DB_PASSWORD : ${{ secrets.DB_PASSWORD }}
-        DB_PORT : ${{ secrets.DB_PORT }}
-        DB_HOST : ${{ secrets.DB_HOST }}
-        DB_ENGINE : ${{ secrets.DB_ENGINE }}
+        SECRET_KEY : ${{ secrets.SECRET_key }}
+        DB_NAME : github_actions
+        DB_USER : postgres
+        DB_PASSWORD : postgres
+        DB_PORT : 5432
+        DB_HOST : localhost
+        DB_ENGINE : django.db.backends.postgresql
         
       run: |
         python manage.py test 
