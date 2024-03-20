@@ -45,7 +45,7 @@ jobs:
         DB_NAME : github_actions
         DB_USER : postgres
         DB_PASSWORD : postgres
-        DB_PORT : 5432
+        DB_PORT : 5433
         DB_HOST : localhost
         DB_ENGINE : django.db.backends.postgresql
         
