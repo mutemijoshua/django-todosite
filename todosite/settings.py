@@ -83,6 +83,7 @@ WSGI_APPLICATION = 'todosite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+'''
 DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.postgresql',
@@ -93,7 +94,19 @@ DATABASES = {
         'HOST':os.environ.get('DB_HOST'),
     }
 }
+'''
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':"Todositedb",
+        'USER':"postgres" , 
+        'PASSWORD':"pass",
+        'DB_HOST':"localhost",
+        'DB_PORT': 5432
+
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
