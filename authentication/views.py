@@ -21,13 +21,13 @@ class EmailThread(threading.Thread):
         self.email = email
         threading.Thread.__init__(self)
 
-        def run(self):
+    def run(self):
             self.email.send()
 
 
 def send_activation_email(user,request):
     current_site = get_current_site(request)
-    email_subject = 'Activate your email'
+    email_subject = 'Activate your account'
     email_body = render_to_string ('authentication/activate.html', {
         'user': user,
         'domain':current_site,                                                      
@@ -36,7 +36,7 @@ def send_activation_email(user,request):
        
         })
 
-    email =  EmailMessage(subject=email_subject, body= email_body, from_email = settings.EMAIL_FROM_USER, to = [user.email])
+    email =  EmailMessage(subject=email_subject, body= email_body, from_email = settings.EMAIL_FROM_USER, to =[user.email])
 
     EmailThread(email).start()
 
@@ -110,7 +110,7 @@ def login_user(request):
         
         user = authenticate(request, username=username ,password=password)
     
-        if not user.is_email_verified:
+        if user and not user.is_email_verified :
             messages.add_message(request, messages.ERROR, 'Email is not verified, please check your email inbox')
             return render(request,'authentication/login.html', context)
     
