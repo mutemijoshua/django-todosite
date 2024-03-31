@@ -18,7 +18,7 @@ import dj_database_url
 
 import psycopg2
 
-DATABASE_URL = 'postgresql:///Todositedb'
+DATABASE_URL = 'postgresql://Todositedb'
 
 
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
@@ -155,5 +155,5 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'todosite/static')]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import dj_database_url
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True,engine="django.db.backends.postgresql")
+DATABASES = {'default': dj_database_url.config(default='postgres://postgres:pass@localhost/Todositedb')}
 django_heroku.settings(locals())
