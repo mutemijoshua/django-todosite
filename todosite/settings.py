@@ -98,7 +98,7 @@ DATABASES = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': "django.db.backends.postgresql",
         'NAME':"Todositedb",
         'USER':"postgres" , 
         'PASSWORD':"pass",
