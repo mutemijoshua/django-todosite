@@ -14,12 +14,9 @@ from pathlib import Path
 import os
 import sys
 import django_heroku
-import psycopg2
 import dj_database_url
 
-DATABASE_URL = os.environ['DATABASE_URL']
 
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
